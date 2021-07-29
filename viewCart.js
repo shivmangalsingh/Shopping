@@ -1,10 +1,15 @@
 const { itemList } = require('./data.js');
-let { userItemList } = require('./addToCart.js');
+const chalk = require("chalk");
+//let { userItemList } = require('./addToCart.js');
 
 
-function viewCart() {
-    if (userItemList.length == 0) console.log("Your Cart is empty!");
-    else {
+function viewCart(userItemList) {
+    if (userItemList.length == 0) {
+        console.log(chalk.red("Your Cart is empty!"));
+
+    } else {
+
+        console.log("List of item in your Cart ----->!");
         for (let i = 0; i < userItemList.length; i++) {
 
             console.log(`ItemName- ${itemList[userItemList[i]].name}  pricePerItem-${itemList[userItemList[i]].price} productId-${userItemList[i]}`);
@@ -13,5 +18,5 @@ function viewCart() {
     }
 
 }
-module.exports.userItemList = userItemList;
+//module.exports.userItemList = userItemList;
 module.exports.viewCart = viewCart;

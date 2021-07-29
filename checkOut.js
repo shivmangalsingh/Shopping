@@ -1,22 +1,23 @@
 const prompt = require("prompt-sync")();
-let { userItemList, viewCart } = require('./viewCart.js');
+const chalk = require("chalk");
+let { viewCart } = require('./viewCart.js');
 const { itemList } = require('./data.js');
 
 
-function checkOut() {
+function checkOut(userItemList) {
     if (userItemList.length == 0) {
-        console.log("You did not have any item in your Cart! First add then comeback.");
+        console.log(chalk.red("You did not have any item in your Cart! First add then comeback."));
         return 0;
     }
-    console.log("You have choosen this list of item:-");
-    viewCart();
+
+    viewCart(userItemList);
     let totalPrice = 0;
     for (let i = 0; i < userItemList.length; i++) {
 
         totalPrice += itemList[userItemList[i]].price;
     }
-    console.log(`Total Price You have to pay is: ${totalPrice}`);
-    console.log(`Please!Choose index: Buy(0) or Cancel(1) `);
+    console.log(chalk.yellow.underline.green(`Total Price You have to pay is: ${totalPrice} Rs.`));
+    console.log("Please!Choose index:" + chalk.blue(" Buy(0) ") + "or " + chalk.red("Cancel(1) "));
     let id = prompt();
     if (id == "Buy" || id == 0) {
         return totalPrice;
