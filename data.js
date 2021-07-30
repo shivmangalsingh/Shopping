@@ -1,3 +1,5 @@
+//Dummy hard coded data..
+
 const itemList = [{
     name: "laptop",
     price: 50000,

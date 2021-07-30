@@ -1,6 +1,5 @@
 const prompt = require("prompt-sync")();
 const chalk = require("chalk");
-const { update } = require('./db.js');
 
 function removeFromCart(userItemList) {
     if (userItemList.length == 0) {
@@ -9,7 +8,6 @@ function removeFromCart(userItemList) {
     }
     let id = new Array();
     id = prompt("Enter productId  to remove or write " + chalk.red.bold("'Done'") + "if you done with it ").split(' ');
-    console.log(userItemList);
     while (id[0] != "Done") {
         let rItem = -1;
         for (let i = 0; i < id.length; i++) {

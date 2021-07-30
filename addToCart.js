@@ -1,8 +1,5 @@
 const prompt = require("prompt-sync")();
 const chalk = require("chalk");
-//const { itemList } = require('./data.js');
-//const { update } = require('./db.js');
-//let userItemList = [];
 
 function addToCart(userItemList) {
     let id = new Array();
@@ -12,8 +9,4 @@ function addToCart(userItemList) {
     }
     console.log(chalk.green("You have successfully added item to your cart!"));
 }
-
-//function userItemListUpdate(item) { userItemList.push(item); }
-
 module.exports.addToCart = addToCart;
-//module.exports.userItemList = userItemList;

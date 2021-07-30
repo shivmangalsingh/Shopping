@@ -18,5 +18,4 @@ function viewCart(userItemList) {
     }
 
 }
-//module.exports.userItemList = userItemList;
 module.exports.viewCart = viewCart;

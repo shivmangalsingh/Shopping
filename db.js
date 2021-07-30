@@ -55,7 +55,6 @@ function myCart() {
             if (err) reject(err);
             else {
                 console.log("Data fetched successfully!");
-                //console.log(res.rows[0]);
                 if (res.rowCount)
                     resolve(res.rows[0]);
                 else resolve("empty");
@@ -68,12 +67,10 @@ function myCart() {
 }
 
 function update(item) {
-    //return new Promise((resolve, reject) => {
     pool.query('UPDATE Account SET item = $1 where name =$2 and password =$3', [item, user[0], user[1]], (err, res) => {
-        if (err) return err; //reject("Error while updating the data into database");
-        else return res; //("Successfully added to the database as well");
+        if (err) return err;
+        else return res;
     });
-    // });
 }
 
 function purchased(userItemList1) {
